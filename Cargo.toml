@@ -1,0 +1,5 @@
+[package]
+
+name = "dangerouscode-rs"
+version = "0.0.1"
+authors = ["6720 <admin@aria.pw>"]
