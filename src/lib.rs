@@ -20,12 +20,21 @@ use syntax::ptr::P;
 #[plugin_registrar]
 pub fn plugin_registrar(reg: &mut Registry) {
     reg.register_syntax_extension(token::intern("dangerous"), 
-                                  base::Decorator(Box::new(self::expand)));
+                                  base::Decorator(Box::new(self::send_warning_dangerous)));
+    reg.register_syntax_extension(token::intern("hack"),
+                                  base::Decorator(Box::new(self::send_warning_hack)));
 }
 
-pub fn expand(ecx: &mut base::ExtCtxt, span: codemap::Span, 
-              meta_item: &ast::MetaItem, item: &ast::Item, 
-              push: Box<FnMut(P<ast::Item>)>) {
+pub fn send_warning_hack(ecx: &mut base::ExtCtxt, span: codemap::Span,
+                         meta_item: &ast::MetaItem, item: &ast::Item,
+                         push: Box<FnMut(P<ast::Item>)>) {
+    ecx.span_warn(span, &format!("Item {} is a hack/workaround!",
+                                 token::get_ident(item.ident).as_slice()));
+}
+
+pub fn send_warning_dangerous(ecx: &mut base::ExtCtxt, span: codemap::Span, 
+                              meta_item: &ast::MetaItem, item: &ast::Item, 
+                              push: Box<FnMut(P<ast::Item>)>) {
     ecx.span_warn(span, &format!("Item '{}' is dangerous!", 
                                  token::get_ident(item.ident).as_slice()));
 }
