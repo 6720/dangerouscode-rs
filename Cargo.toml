@@ -1,9 +1,11 @@
 [package]
+
 name = "dangerouscode"
 version = "0.0.1"
 authors = ["6720 <admin@aria.pw>"]
 
 [lib]
+
 name = "dangerouscode"
 path = "src/lib.rs"
 crate-type = ["dylib"]
