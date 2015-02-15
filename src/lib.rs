@@ -19,14 +19,14 @@ use syntax::ptr::P;
 
 #[plugin_registrar]
 pub fn plugin_registrar(reg: &mut Registry) {
-    reg.register_syntax_extension(token::intern("dangerous"), base::Decorator(Box::new(self::expand)));
+    reg.register_syntax_extension(token::intern("dangerous"), 
+                                  base::Decorator(Box::new(self::expand)));
 }
 
-pub fn expand(ecx: &mut base::ExtCtxt, span: codemap::Span, meta_item: &ast::MetaItem, item: &ast::Item, push: Box<FnMut(P<ast::Item>)>) {
-    ecx.span_warn(span, &format!("Item '{}' is dangerous!", token::get_ident(item.ident).as_slice()));
+pub fn expand(ecx: &mut base::ExtCtxt, span: codemap::Span, 
+              meta_item: &ast::MetaItem, item: &ast::Item, 
+              push: Box<FnMut(P<ast::Item>)>) {
+    ecx.span_warn(span, &format!("Item '{}' is dangerous!", 
+                                 token::get_ident(item.ident).as_slice()));
 }
 
-#[test]
-#[dangerous]
-fn it_works() {
-}
