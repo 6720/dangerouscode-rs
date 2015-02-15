@@ -1,8 +1,8 @@
+#![crate_type="dylib"]
 #![feature(plugin_registrar, box_syntax, rustc_private, plugin)]
 
 #![allow(unused)]
 
-#![crate_type="dylib"]
 
 extern crate syntax;
 
