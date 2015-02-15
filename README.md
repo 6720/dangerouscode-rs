@@ -11,13 +11,13 @@ Add the following to your Cargo.toml
 git = "https://github.com/6720/dangerouscode-rs"
 ```
 Include the `dangerouscode` crate.
-```
+```rust
 #![feature(plugin)]
 #![plugin(dangerouscode)]
 
 extern crate dangerouscode;
 ```
-(If there's a better way to do this, please let me know!)
+--(If there's a better way to do this, please let me know!)--
 
 Use the `#[dangerous]` attribute on something dangerous... 
 ```rust
