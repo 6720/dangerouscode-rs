@@ -17,7 +17,7 @@ Include the `dangerouscode` crate.
 
 extern crate dangerouscode;
 ```
---(If there's a better way to do this, please let me know!)--
+If there's a better way to do this, please let me know!
 
 Use the `#[dangerous]` attribute on something dangerous... 
 ```rust
