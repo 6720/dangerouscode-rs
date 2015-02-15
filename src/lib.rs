@@ -4,6 +4,8 @@
 
 #![allow(unused)]
 
+#![crate_type="dylib"]
+
 extern crate syntax;
 
 #[macro_use]
