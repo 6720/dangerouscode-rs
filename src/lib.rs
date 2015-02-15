@@ -1,6 +1,7 @@
 #![feature(plugin_registrar)]
 #![feature(box_syntax)]
 #![feature(rustc_private)]
+#![feature(plugin)]
 
 #![allow(unused)]
 
