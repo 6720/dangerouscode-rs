@@ -8,7 +8,7 @@ How to use
 Add the following to your Cargo.toml
 ```
 [dependencies.dangerouscode]
-git = "https://github.com/6720/dangerouscode-rs"
+git = "https://github.com/curlpipesh/dangerouscode-rs"
 ```
 Include the `dangerouscode` crate.
 ```rust
